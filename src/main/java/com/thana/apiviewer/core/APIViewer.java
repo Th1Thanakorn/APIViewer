@@ -1,5 +1,6 @@
 package com.thana.apiviewer.core;
 
+import com.thana.apiviewer.event.handler.MainEventHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -20,6 +21,7 @@ public class APIViewer {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
         MinecraftForge.EVENT_BUS.register(this);
+        MinecraftForge.EVENT_BUS.register(new MainEventHandler());
     }
 
     private void setup(final FMLCommonSetupEvent event) {
